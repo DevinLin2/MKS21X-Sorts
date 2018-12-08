@@ -4,9 +4,10 @@ public class Sorts{
     int[] toSort = new int[Integer.parseInt(args[0])];
     Random randgen = new Random();
     for (int i = 0; i < toSort.length; i++){
-      toSort[i] = randgen.nextInt();
+      toSort[i] = randgen.nextInt() % Integer.parseInt(args[0]);
     }
-    selectionSort(toSort);
+    //selectionSort(toSort);
+    bubbleSort(toSort);
   }
   public static String printArray(int[] ary){
     String output = "[";
