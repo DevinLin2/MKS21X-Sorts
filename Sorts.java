@@ -55,6 +55,15 @@ public class Sorts{
   *@param data  the elements to be sorted.
   */
   public static void bubbleSort(int[] data){
-
+    int minValue = 0;
+    while (!(isSorted(data))){
+      for (int i = 0; i < data.length-1; i++){
+        if (data[i] > data[i+1]){
+          minValue = data[i+1];
+          data[i+1] = data[i];
+          data[i] = minValue;
+        }
+      }
+    }
   }
 }
