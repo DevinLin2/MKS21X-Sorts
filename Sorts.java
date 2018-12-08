@@ -15,22 +15,46 @@ public class Sorts{
     }
     return output += ary[ary.length-1] + "]";
   }
-  public static void selectionSort(int [] ary){
+  /**Helper function to test if array is sorted.
+  *Returns true if sorted in increasing order, false otherwise.
+  *@param data the element to test if it is sorted.
+  */
+  public static boolean isSorted(int[] data){
+    boolean sorted = true;
+    for (int i = 0; i < data.length-1; i++){
+      if (data[i] > data[i+1]){
+        sorted = false;
+      }
+    }
+    return sorted;
+  }
+  /**Selection sort of an int array.
+  *Upon completion, the elements of the array will be in increasing order.
+  *@param data  the elements to be sorted.
+  */
+  public static void selectionSort(int [] data){
     int index = 0;
-    for (int i = 0; i < ary.length; i++){
-      int smallest = ary[i];
-      for (int z = i; z < ary.length; z++){
-        if (ary[z] < smallest){
-          smallest = ary[z];
+    for (int i = 0; i < data.length; i++){
+      int smallest = data[i];
+      for (int z = i; z < data.length; z++){
+        if (data[z] < smallest){
+          smallest = data[z];
         }
       }
-      for (int y = 0; y < ary.length; y++){
-        if (ary[y] == smallest){
+      for (int y = 0; y < data.length; y++){
+        if (data[y] == smallest){
           index = y;
         }
       }
-      ary[index] = ary[i];
-      ary[i] = smallest;
+      data[index] = data[i];
+      data[i] = smallest;
     }
+  }
+  /**Bubble sort of an int array.
+  *Upon completion, the elements of the array will be in increasing order.
+  *@param data  the elements to be sorted.
+  */
+  public static void bubbleSort(int[] data){
+
   }
 }
