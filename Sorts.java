@@ -40,6 +40,7 @@ public class Sorts{
       for (int z = i; z < data.length; z++){
         if (data[z] < smallest){
           smallest = data[z];
+          index = z;
         }
       }
       for (int y = 0; y < data.length; y++){
@@ -66,5 +67,19 @@ public class Sorts{
         }
       }
     }
+  }
+  /**Helper function to find index where int before current is < current and int after current is > current.
+  *Returns the index where current will be inserted.
+  *@param data the array where current is to be inserted into.
+  *@param current the value being inserted.
+  */
+  public static int findIndex(int[] data, int current){
+    return 0;
+  }
+  /**Insertion sort of an int array.
+  *Upon completion, the elements of the array will be in increasing order.
+  *@param data  the elements to be sorted.
+  */
+  public static void insertionSort(int[] data){
   }
 }
