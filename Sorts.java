@@ -7,9 +7,10 @@ public class Sorts{
       toSort[i] = randgen.nextInt() % Integer.parseInt(args[0]);
     }
     //selectionSort(toSort);
-    bubbleSort(toSort);
-    //insertionSort(toSort);
+    //bubbleSort(toSort);
+    insertionSort(toSort);
     System.out.println(isSorted(toSort));
+    //System.out.println(printArray(toSort));
   }
   public static String printArray(int[] ary){
     String output = "[";
@@ -75,22 +76,16 @@ public class Sorts{
   *@param data  the elements to be sorted.
   */
   public static void insertionSort(int[] data){
-    int count = 0;
-    int storage = 0;
     for (int i = 1; i < data.length; i++){
-      if (data[i] < data[i-1]){
-        storage = data[i];
-        for (int z = i; z > 0; z--){
-          if(data[z] < data[z-1]){
-            count++;
-          }
-        }
-        for (int x = i; x > i - count; x--){
-          data[x] = data[x-1];
-        }
-        data[i-count] = storage;
-        count = 0;
+      int storage = data[i];
+      int count = 0;
+      while(i-count >= 0 && storage < data[i-count]){ // not running
+        data[i-count] = data[i-(count-1)]; //this is just changing data[i] fix this
+        count++;
+        System.out.println(printArray(data));
       }
+      data[i-count] = storage;
+      count = 0;
     }
   }
 }
