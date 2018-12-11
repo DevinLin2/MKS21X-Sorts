@@ -68,18 +68,26 @@ public class Sorts{
       }
     }
   }
-  /**Helper function to find index where int before current is < current and int after current is > current.
-  *Returns the index where current will be inserted.
-  *@param data the array where current is to be inserted into.
-  *@param current the value being inserted.
-  */
-  public static int findIndex(int[] data, int current){
-    return 0;
-  }
   /**Insertion sort of an int array.
   *Upon completion, the elements of the array will be in increasing order.
   *@param data  the elements to be sorted.
   */
   public static void insertionSort(int[] data){
+    int count = 0;
+    int storage = 0;
+    for (int i = 1; i < data.length; i++){
+      if (data[i] < data[i-1]){
+        storage = data[i];
+        for (int z = i; z >= 0; z--){
+          if(data[z] < data[z-1]){
+            count++;
+          }
+        }
+        for (int x = i; x > i - count; x--){
+          data[x] = data[x-1];
+        }
+        data[i-count] = storage;
+      }
+    }
   }
 }
