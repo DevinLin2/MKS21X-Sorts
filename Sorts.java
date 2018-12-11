@@ -8,6 +8,8 @@ public class Sorts{
     }
     //selectionSort(toSort);
     bubbleSort(toSort);
+    //insertionSort(toSort);
+    System.out.println(isSorted(toSort));
   }
   public static String printArray(int[] ary){
     String output = "[";
@@ -78,7 +80,7 @@ public class Sorts{
     for (int i = 1; i < data.length; i++){
       if (data[i] < data[i-1]){
         storage = data[i];
-        for (int z = i; z >= 0; z--){
+        for (int z = i; z > 0; z--){
           if(data[z] < data[z-1]){
             count++;
           }
@@ -87,6 +89,7 @@ public class Sorts{
           data[x] = data[x-1];
         }
         data[i-count] = storage;
+        count = 0;
       }
     }
   }
