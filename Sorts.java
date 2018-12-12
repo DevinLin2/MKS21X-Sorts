@@ -4,11 +4,11 @@ public class Sorts{
     int[] toSort = new int[Integer.parseInt(args[0])];
     Random randgen = new Random();
     for (int i = 0; i < toSort.length; i++){
-      toSort[i] = randgen.nextInt() % Integer.parseInt(args[0]);
+      toSort[i] = 0;
     }
     //selectionSort(toSort);
     //bubbleSort(toSort);
-    insertionSort(toSort);
+    //insertionSort(toSort);
     System.out.println(isSorted(toSort));
     //System.out.println(printArray(toSort));
   }
@@ -78,14 +78,12 @@ public class Sorts{
   public static void insertionSort(int[] data){
     for (int i = 1; i < data.length; i++){
       int storage = data[i];
-      int count = 0;
-      while(i-count >= 0 && storage < data[i-count]){ // not running
-        data[i-count] = data[i-(count-1)]; //this is just changing data[i] fix this
-        count++;
-        System.out.println(printArray(data));
+      int index = i;
+      while(index > 0 && storage <= data[index-1]){
+        data[index] = data[index-1];
+        index--;
       }
-      data[i-count] = storage;
-      count = 0;
+      data[index] = storage;
     }
   }
 }
